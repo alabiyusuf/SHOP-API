@@ -4,8 +4,8 @@
   "description": "users should be able to view list of items in the shop",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js",
-    "start": "node index.js"
+    "start": "nodemon index.js",
+    "serve": "node index"
   },
   "keywords": [
     "\"shop\"",
