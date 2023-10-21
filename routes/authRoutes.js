@@ -18,12 +18,10 @@ router.post('/register', async (req, res) => {
       password: hashedPassword,
     });
 
-    return res
-      .status(201)
-      .json({ message: `User created successfully`, newUser });
+    res.status(201).send(`User created successfully.`);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    res.status(500).json({
       message: `Error encountered while trying to create a new user`,
       error,
     });
