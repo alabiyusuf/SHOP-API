@@ -30,10 +30,11 @@ test(`Checking to see if a user will be allowed to be logged in`, async () => {
   expect(response.status).toBe(200);
   expect(typeof response.data).toBe(`object`);
 });
+const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InZlZWl5ZSIsInVzZXJJZCI6IjY1MzM2MDcyMWI5YmMyZjNiOTU0NjhjNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzg2NTk4N30.7-k3jxqDZdCOZDaf6YEK7FBmi42Ryw2Ytc0uyqvITpQ`;
 
-// const headers = {
-//   authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InZlZWl5ZSIsInVzZXJJZCI6IjY1MzM2MDcyMWI5YmMyZjNiOTU0NjhjNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzg2NTk4N30.7-k3jxqDZdCOZDaf6YEK7FBmi42Ryw2Ytc0uyqvITpQ`,
-// };
+const headers = {
+  authorization: `Bearer ${token}`,
+};
 
 // TEST FOR ADDING A NEW ITEM TO THE SHOP
 test(`Checking to see if an item will be added to the shop collection successfulyy.`, async () => {
@@ -46,9 +47,7 @@ test(`Checking to see if an item will be added to the shop collection successful
       isInStock: true,
     },
     {
-      headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InZlZWl5ZSIsInVzZXJJZCI6IjY1MzM2MDcyMWI5YmMyZjNiOTU0NjhjNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzg2NTk4N30.7-k3jxqDZdCOZDaf6YEK7FBmi42Ryw2Ytc0uyqvITpQ`,
-      },
+      headers,
     }
   );
 
@@ -59,9 +58,7 @@ test(`Checking to see if an item will be added to the shop collection successful
 // TEST FOR GETTING ALL LIST OF ITEMS IN THE SHOPS
 test(`checking to see if all the items in the shop collections will be gotten`, async () => {
   const response = await axios.get(`http://localhost:4000/v1/shops/`, {
-    headers: {
-      authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InZlZWl5ZSIsInVzZXJJZCI6IjY1MzM2MDcyMWI5YmMyZjNiOTU0NjhjNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzg2NTk4N30.7-k3jxqDZdCOZDaf6YEK7FBmi42Ryw2Ytc0uyqvITpQ`,
-    },
+    headers,
   });
 
   expect(response.status).toBe(200);
@@ -72,9 +69,7 @@ test(`checking to see if all the items in the shop collections will be gotten`, 
 test(`check to see if an item in the shop collections will be deleted`, async () => {
   const id = `6533611d63e6fc7dac2b7504`;
   const response = await axios.delete(`http://localhost:4000/v1/shops/${id}`, {
-    headers: {
-      authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InZlZWl5ZSIsInVzZXJJZCI6IjY1MzM2MDcyMWI5YmMyZjNiOTU0NjhjNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzg2NTk4N30.7-k3jxqDZdCOZDaf6YEK7FBmi42Ryw2Ytc0uyqvITpQ`,
-    },
+    headers,
   });
 
   expect(response.status).toBe(200);
