@@ -10,8 +10,8 @@ try {
     const response = await axios.post(
       'http://localhost:4000/v1/auth/register',
       {
-        fullName: 'Veeiye',
-        userName: 'veeiye',
+        fullName: 'WHysisis',
+        userName: 'Biobaku',
         role: `admin`,
         password: '#Password1',
       }
@@ -27,7 +27,7 @@ try {
 // TEST FOR LOGGING IN ENDPOINT
 test(`Checking to see if a user will be allowed to be logged in`, async () => {
   const response = await axios.post('http://localhost:4000/v1/auth/login', {
-    userName: `veeiye`,
+    userName: `ayotundenas`,
     password: `#Password1`,
   });
 
